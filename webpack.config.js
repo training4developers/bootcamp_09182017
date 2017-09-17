@@ -7,10 +7,11 @@ const { devServer } = require('./package.json');
 // used to copy content from the src folder to the dist folder
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 // configure the environment object for development mode
-const ENV = process.env.ENV = process.env.NODE_ENV = 'development';
-//const ENV = process.env.ENV = process.env.NODE_ENV = 'production';
+// const ENV = process.env.ENV = process.env.NODE_ENV = 'development';
+const ENV = process.env.ENV = process.env.NODE_ENV = 'production';
 const MINIFY = false;
 
 // source and distribution folder paths
@@ -71,7 +72,15 @@ const webpackConfig = {
               presets: [
                 // use the latest ES2017 features, but disable modules
                 // Webpack 2 provides module support
-                ['latest', { modules: false }],
+                ['env', {
+                  modules: false,
+                  targets: {
+                    browsers: [
+                      'last 2 versions',
+                      'ie >= 11'
+                    ],
+                  },
+                }],
                 // react is required for JSX support
                 'react',
               ],
@@ -149,7 +158,13 @@ const webpackConfig = {
 if (ENV === 'production' && MINIFY) {
   webpackConfig
     .plugins
-    .push(new webpack.optimize.UglifyJsPlugin());
+    .push(new UglifyJsPlugin({
+      uglifyOptions: {
+        ecma: 8,
+        mangle: { keep_classnames: true },
+        output: { beautify: true },
+      },
+    }));
 }
 
 module.exports = webpackConfig;
