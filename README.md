@@ -8,7 +8,7 @@ Eric Greene - [http://t4d.io](http://t4d.io) - [LinkedIn](https://www.linkedin.c
 
 Class:
 
-- Monday - Friday, next 2 weeks: 9:00am to 5pm PDT
+- Monday - Friday, next 2 weeks: 9am to 5pm PDT
 
 Breaks:
 

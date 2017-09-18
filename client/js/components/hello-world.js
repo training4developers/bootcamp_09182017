@@ -7,7 +7,7 @@ export class HelloWorld extends React.Component {
     return <Jumbotron fluid>
       <Container fluid>
         <h1 className="display-3">Hello World!</h1>
-        <p className="lead">Welcome to React + Redux with TypeScript!</p>
+        <p className="lead">Welcome to React + Redux!</p>
       </Container>
     </Jumbotron>;
   }
