@@ -1,24 +1,13 @@
-main {
-  padding-top: 30px;
+p {
+  color: blue;
+  font-family: Courier New, Courier, monospace;
+  font-weight:bold;
+  text-decoration: underline;
+  font-style: italic;
+  border: 2px solid purple;
 }
 
-nav {
-  
-  ul {
-    list-style-type: none;
-    margin:0;
-    padding:0;
-  }
+.page-title:nth-of-type(2) { color: red; }
 
-  li {
-    display: inline-block;
-    margin:5px;
-    padding:2px;
-    border: black solid 2px;
+h1 { color: green; }
 
-    a { 
-      text-decoration: none;
-      color: blue;
-    }
-  }
-}
