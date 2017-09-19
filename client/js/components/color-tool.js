@@ -6,11 +6,10 @@ export class ColorTool extends React.Component {
     super(props);
 
     this.state = {
+      colors: props.colors.slice(),
       colorName: '',
       colorHexCode: '',
     };
-
-    console.dir(this);
 
     this.onChange = this.onChange.bind(this);
   }
@@ -21,11 +20,23 @@ export class ColorTool extends React.Component {
     });
   }
 
+  onClick = () => {
+    this.setState({
+      colors: this.state.colors.concat({
+        id: Math.max(...this.state.colors.map(c => c.id)) + 1,
+        name: this.state.colorName,
+        hexCode: this.state.colorHexCode,
+      }),
+      colorName: '',
+      colorHexCode: '',
+    });
+  }
+
   render() {
     return <div>
       <header><h1>Color Tool</h1></header>
       <ul>
-        {this.props.colors.map(color => <li>{color.name}</li>)}
+        {this.state.colors.map(color => <li key={color.id}>{color.name}</li>)}
       </ul>
       <form>
         <div>
@@ -35,9 +46,10 @@ export class ColorTool extends React.Component {
         </div>
         <div>
           <label htmlFor="color-hex-code-input">Color HexCode:</label>
-          <input type="text" id="color-hex-code-input" name="colorHexCode"
+          <input type="color" id="color-hex-code-input" name="colorHexCode"
             value={this.state.colorHexCode} onChange={this.onChange} />
         </div>
+        <button type="button" onClick={this.onClick}>Add Color</button>
       </form>
     </div>;
 
