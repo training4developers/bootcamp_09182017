@@ -1,13 +1,26 @@
-p {
-  color: blue;
-  font-family: Courier New, Courier, monospace;
-  font-weight:bold;
-  text-decoration: underline;
-  font-style: italic;
-  border: 2px solid purple;
+main > div {
+  border: 5px solid red;
+  position:absolute;
+  top:0;
+  left:0;
+  bottom:0;
+  right:0;  
+
+  display:flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-end;
 }
 
-.page-title:nth-of-type(2) { color: red; }
+div > div {
+  border: 2px solid blue;
+  margin:2px;
+  padding: 20px;
+  order: 1;
+}
 
-h1 { color: green; }
-
+div > div:nth-child(3) {
+  order: 2;
+  width: 150px;
+  margin-top: 30px;
+}
