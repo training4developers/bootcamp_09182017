@@ -29,7 +29,7 @@ export class ColorTool extends React.Component {
   }
 
   onClick = () => {
-
+    
     this.colors.addColor(new Color({
       name: this.state.colorName,
       hexCode: this.state.colorHexCode,
