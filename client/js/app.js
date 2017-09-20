@@ -1,10 +1,22 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
+class Color {
+
+  constructor(colorData) {
+    Object.assign(this, colorData);
+  }
+
+  colorInfo() {
+    return this.name + ' ' + this.hexCode;
+  }
+}
+
+
 const colorList = [
-  { id: 1, name: 'green', hexCode: '' },
-  { id: 2, name: 'orange', hexCode: '' },
-  { id: 3, name: 'blue', hexCode: '' },
+  new Color({ id: 1, name: 'green', hexCode: '#00FF00' }),
+  new Color({ id: 2, name: 'orange', hexCode: '#FFA500' }),
+  new Color({ id: 3, name: 'blue', hexCode: '#0000FF' }),
 ];
 
 

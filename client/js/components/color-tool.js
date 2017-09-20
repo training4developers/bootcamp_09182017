@@ -36,7 +36,7 @@ export class ColorTool extends React.Component {
     return <div>
       <header><h1>Color Tool</h1></header>
       <ul>
-        {this.state.colors.map(color => <li key={color.id}>{color.name}</li>)}
+        {this.state.colors.map(color => <li key={color.id}>{color.colorInfo()}</li>)}
       </ul>
       <form>
         <div>
