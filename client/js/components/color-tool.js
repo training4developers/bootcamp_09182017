@@ -3,12 +3,14 @@ import * as React from 'react';
 import { Color } from '../models/color';
 import { Colors } from '../models/colors';
 
+import { ToolHeader } from './tool-header';
+
 export class ColorTool extends React.Component {
 
   constructor(props) {
     super(props);
 
-    this.colors = new Colors(props.colors);
+    this.colors = new Colors(props.colors.slice());
 
     this.state = {
       colors: this.colors.sortedColors,
@@ -45,8 +47,8 @@ export class ColorTool extends React.Component {
   }
 
   render() {
-    return <div>
-      <header><h1>Color Tool</h1></header>
+    return <div> 
+      <ToolHeader headerText="Color Tool" />
       <ul>
         {this.state.colors.map(color => <li key={color.id}>{color.sortOrder} - {color.colorInfo()}</li>)}
       </ul>
