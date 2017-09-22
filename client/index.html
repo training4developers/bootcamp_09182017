@@ -10,6 +10,30 @@
 
 <body>
   <main class="container-fluid"></main>
+  <script>
+
+
+    const xhr = new XMLHttpRequest();
+
+    xhr.addEventListener('readystatechange', () => {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        console.log('all done');
+        console.log(JSON.parse(xhr.responseText));
+      }
+    });
+
+    xhr.open('GET','http://localhost:3010/widgets', true);
+    xhr.send();
+
+    ajax({ method: 'GET', url: 'http://localhost:3010/widgets'},
+      function(widgets) {
+        console.log(widgets)
+      });
+
+    console.log('made it here...');
+
+
+  </script>
 </body>
 
 </html>

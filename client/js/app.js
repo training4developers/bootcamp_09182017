@@ -9,11 +9,39 @@ const colorList = [
   new Color({ id: 3, name: 'blue', hexCode: '#0000FF', sortOrder: 3 }),
 ];
 
-
 import { ColorTool } from './components/color-tool';
 
-ReactDOM.render(<ColorTool colors={colorList} />, document.querySelector('main'));
+// class DomDemo extends React.Component {
+
+//   render() {
+
+//     const headerText = 'This is from the DomDemo Component';
+
+//     // shadow dom
+//     return <section>
+//       <h3>{headerText}</h3>
+//       <div>
+//         {this.props.children}
+//       </div>
+//     </section>;
+
+//   }
+// }
+
+// class Form extends React.Component {
+//   render() {
+//     return this.props.children;
+//   }
+// }
+
+// class Input extends React.Component {
+//   render() {
+//     // code to draw input box
+//     // code to set value from this.props.vaue
+//   }
+// }
 
 
-// import colorNamer from 'color-namer';
-// console.log(colorNamer('#FF0000').html[0].name);
+//ReactDOM.render(<ColorTool colors={colorList} />, document.querySelector('main'));
+
+
