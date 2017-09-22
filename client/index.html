@@ -12,73 +12,70 @@
   <main class="container-fluid"></main>
   <script>
 
-    // class Promise {
-    //   constructor(fn) {
+    const p1 = new Promise(resolve => setTimeout(() => resolve('a'), 2000));
+    const p2 = new Promise(resolve => setTimeout(() => resolve('b'), 4000));
+    const p3 = new Promise((resolve, reject) => setTimeout(() => reject('c'), 6000));
+    const p4 = new Promise(resolve => setTimeout(() => resolve('d'), 8000));
 
-    //     function resolve() {
+    p1.then(results => console.log(results));
+    p2.then(results => console.log(results));
+    p3.then(results => console.log(results)).catch(err => console.log('err:',err));
+    p4.then(results => console.log(results));
 
-    //     }
+    Promise.all([p1,p2,p3,p4]).then(results => {
+      console.log(results);
+      console.log('all done');
+    }).catch(err => console.log('one failed:', err));
 
-    //     function reject() {
 
-    //     }
+    // let counter = 0;
 
-    //     fn(resolve, reject);
+    // counter++;
+    // setTimeout(() => {
+    //   console.log('a');
+    //   counter--;
+    //   if (counter === 0) {
+    //     allDone();
     //   }
+    // }, 2000);
+
+    // counter++;
+    // setTimeout(() => {
+    //   console.log('b');
+    //   counter--;
+    //   if (counter === 0) {
+    //     allDone();
+    //   }
+    // }, 1000);
+
+    // counter++;
+    // setTimeout(() => {
+    //   console.log('c');
+    //   counter--;
+    //   if (counter === 0) {
+    //     allDone();
+    //   }
+    // }, 3000);
+
+    // function allDone() {
+    //   console.log('all done');
     // }
 
-    const youngMan = new Promise(function youngLady(resolve, reject) {
+    // const doIt = (delay) => {
+    //   return new Promise(resolve => {
+    //     console.log('an a is done');
+    //     setTimeout(() => resolve('a'), 2000);
+    //   });
+    // };
 
-      setTimeout(function() {
-        console.log('young lady has decided!');
-        reject('no, I fell in love with your best friend...');
-      }, 2000);
-
-      console.log('young lady is deciding');
-
-    });
-
-    youngMan.then(function(result) {
-      console.log('yay she said yes!');
-      console.log(result);
-    }).catch(function(result) {
-      console.log('sign up for eHarmony...');
-      console.log(result);
-    });
-
-    console.log('young man is waiting...');
-
-
-    // ajax({ ... }, function(widgets) {
-    //   console.log(widgets);
-    // })
-
-    // ajax({ ... }).then(function(widgets) {
-
-    // });
-
-    const ajax = (options) => {
-      return new Promise((resolve, reject) => {
-        const xhr = new XMLHttpRequest();
-        xhr.addEventListener('readystatechange', () => {
-          if (xhr.readyState === 4 && xhr.status === 200) {
-            resolve(JSON.parse(xhr.responseText));
-          } else if (xhr.status >= 400) {
-            reject('the world ended...');
-          }
-        });
-
-        xhr.open(options.method, options.url);
-        xhr.send();
-      });
-    }
-
-    ajax({ method: 'GET', url:'http://localhost:3010/widgets'})
-      .then(widgets => console.log(widgets))
-      .catch(err => console.log('something did not work', err));
+    // doIt(500).then(results => { console.log(results); return doIt(1000); })
+    //   .then(() => doIt(2000))
+    //   .then(() => doIt(3000)).then(() => console.log('all done'))
+    //   .catch(err => console.log(err));
 
 
 
+    
 
   </script>
 </body>
