@@ -12,7 +12,7 @@ const calcReducer = (state = { result: 0 }, action) => {
     case 'ADD':
       return Object.assign({}, state, { result: state.result + action.value});
     case 'SUBTRACT':
-      return { ...state, result: state.result + action.value };
+      return { ...state, result: state.result - action.value };
     default:
       return state;
   }
