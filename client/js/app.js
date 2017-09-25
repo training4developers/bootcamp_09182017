@@ -1,3 +1,6 @@
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+
 
 const createAddAction = value => ({ type: 'ADD', value });
 const createSubtractAction = value => ({ type: 'SUBTRACT', value });
@@ -57,19 +60,32 @@ const { add, subtract } = bindActionCreators({
   subtract: createSubtractAction
 }, store.dispatch);
 
-add(1);
-subtract(2);
-add(3);
-subtract(4);
-add(5);
+class Calculator extends React.Component {
 
+  constructor(props) {
+    super(props);
 
-// store.dispatch(createAddAction(1));
-// store.dispatch(createSubtractAction(2));
-// store.dispatch(createAddAction(3));
-// store.dispatch(createSubtractAction(4));
-// store.dispatch(createAddAction(5));
+    console.log('creating the calculator');
+  }
 
+  render() {
 
-console.log(store.getState());
+    return <form>
+      <input type="text" ref={input => this.operand = input} defaultValue={0} />
+      <fieldset>
+        <button type="button" onClick={() => this.props.add(Number(this.operand.value))}>Add</button>
+        <button type="button" onClick={() => this.props.subtract(Number(this.operand.value))}>Subtract</button>
+      </fieldset>
+      <span>Result: {this.props.result}</span>
+    </form>;
+  }
 
+}
+
+store.subscribe(() => {
+  ReactDOM.render(<Calculator result={store.getState() && store.getState().result}
+    add={add} subtract={subtract} />, document.querySelector('main'));
+});
+
+ReactDOM.render(<Calculator result={store.getState() && store.getState().result}
+  add={add} subtract={subtract} />, document.querySelector('main'));
