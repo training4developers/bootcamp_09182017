@@ -1,47 +1,31 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
 
-import { Color } from './models/color';
+const createAddAction = value => ({ type: 'ADD', value });
+const createSubtractAction = value => ({ type: 'SUBTRACT', value });
 
-const colorList = [
-  new Color({ id: 1, name: 'green', hexCode: '#00FF00', sortOrder: 1 }),
-  new Color({ id: 2, name: 'orange', hexCode: '#FFA500', sortOrder: 2 }),
-  new Color({ id: 3, name: 'blue', hexCode: '#0000FF', sortOrder: 3 }),
+const actions = [
+  createAddAction(1),
+  createSubtractAction(2),
+  { type: 'ADD', value: 3 },
+  { type: 'SUBTRACT', value: 4 },
+  { type: 'ADD', value: 5 }
 ];
 
-import { ColorTool } from './components/color-tool';
+const initialState = 0;
 
-// class DomDemo extends React.Component {
+const finalState = actions.reduce( (state, action) => {
 
-//   render() {
+  console.log('state: ', state, 'action: ', action);
 
-//     const headerText = 'This is from the DomDemo Component';
+  switch(action.type) {
+    case 'ADD':
+      return state + action.value;
+    case 'SUBTRACT':
+      return state - action.value;
+    default:
+      return state;
+  }
 
-//     // shadow dom
-//     return <section>
-//       <h3>{headerText}</h3>
-//       <div>
-//         {this.props.children}
-//       </div>
-//     </section>;
+}, initialState );
 
-//   }
-// }
-
-// class Form extends React.Component {
-//   render() {
-//     return this.props.children;
-//   }
-// }
-
-// class Input extends React.Component {
-//   render() {
-//     // code to draw input box
-//     // code to set value from this.props.vaue
-//   }
-// }
-
-
-//ReactDOM.render(<ColorTool colors={colorList} />, document.querySelector('main'));
-
+console.log(finalState);
 
