@@ -1,30 +1,27 @@
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import { connect, Provider } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
+import { appStore } from './app-store';
+import * as widgetActionCreators from './actions/widget-actions';
+import { refreshWidgets } from './actions/refresh-widgets';
+import { insertWidget } from './actions/insert-widget';
+import { deleteWidget } from './actions/delete-widget';
+import { replaceWidget } from './actions/replace-widget';
+import { WidgetTool } from './components/widget-tool';
 
-fetch('http://localhost:3010/widgets')
-  .then(res => res.json())
-  .then(widgets => console.log(widgets));
+const WidgetToolContainer = connect(
+  ({ widgets, editWidgetId }) => ({ widgets, editWidgetId }),
+  dispatch => bindActionCreators({
+    insertWidget,
+    replaceWidget,
+    deleteWidget,
+    editWidget: widgetActionCreators.editWidgetActionCreator,
+    cancelWidget: widgetActionCreators.cancelWidgetActionCreator,
+    refreshWidgets,
+  }, dispatch))(WidgetTool);
 
-const widget = {
-  name: 'New Widget',
-};
-
-fetch('http://localhost:3010/widgets', {
-  method: 'POST',
-  header: { 'Content-Type': 'application/json'},
-  body: JSON.stringify(widget),
-}).then(res => res.json()).then(results => console.log(results));
-
-const widgetId = "test%56test";
-
-fetch('http://localhost:3010/widgets/' + encodeURIComponent(widgetId), {
-  method: 'DELETE'
-}).then(res => res.json()).then(widget => console.log(widget));
-
-
-// write me some code which will insert a new widget, then fetch all of the
-// widgets so that I can use them
-
-
-
-
-
+ReactDOM.render(<Provider store={appStore}>
+  <WidgetToolContainer />
+</Provider>, document.querySelector('main'));
