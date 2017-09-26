@@ -21,6 +21,10 @@ fetch('http://localhost:3010/widgets/' + encodeURIComponent(widgetId), {
 }).then(res => res.json()).then(widget => console.log(widget));
 
 
+// write me some code which will insert a new widget, then fetch all of the
+// widgets so that I can use them
+
+
 
 
 
