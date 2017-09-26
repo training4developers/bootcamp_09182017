@@ -1,90 +1,163 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-import { createStore, bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
 
-const createAddAction = value => ({ type: 'ADD', value });
-const createSubtractAction = value => ({ type: 'SUBTRACT', value });
+Object.assign({}, state);
 
-const calcReducer = (state = { result: 0 }, action) => {
+{ ...state }
 
-  switch(action.type) {
-    case 'ADD':
-      return Object.assign({}, state, { result: state.result + action.value});
-    case 'SUBTRACT':
-      return { ...state, result: state.result - action.value };
-    default:
-      return state;
-  }
+// { name: <some value>, rank: <some value> }
+onSaveFood(food) {
+  this.props.saveFood(food);
+}
 
-};
+this.componentState.foodName = 'Pizza';
+this.componentState.foodRank = 1;
 
-const store = createStore(calcReducer);
+onSaveFood({
+  name: this.componentState.foodName,
+  rank: this.componentState.foodRank
+});
 
-const mapStateToProps = ({ result }) => ({ result });
+const result = someValue || 2;
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-  add: createAddAction,
-  subtract: createSubtractAction
-}, dispatch);
+const result = state && <div></div>
 
-// const connect = (mapStateToPropsFn, mapDispatchToPropsFn) => {
-
-//   return (PresentationalComponent) => {
-
-//     return class ContainerComponent extends React.Component {
-
-//       constructor(props) {
-//         super(props);
-//         this.presentationalProps = mapDispatchToPropsFn(this.props.store.dispatch);
-//       }
-
-//       componentDidMount() {
-//         this.unsubscribeStore = this.props.store.subscribe(() => {
-//           this.presentationalProps = Object.assign(
-//             {},
-//             this.presentationalProps,
-//             mapStateToPropsFn(this.props.store.getState())
-//           );
-//           this.forceUpdate();
-//         });
-//       }
-
-//       componentWillUnmount() {
-//         this.unsubscribeStore();
-//       }
-
-//       render() {
-//         return <PresentationalComponent {...this.presentationalProps} />;
-//       }
-
-//     };
-
-//   };
-
-// };
+class MyComp extends React.Component {
 
 
-class Calculator extends React.Component {
-
-  constructor(props) {
-    super(props);
-  }
 
   render() {
-    return <form>
-      <input type="text" ref={input => this.operand = input} defaultValue={0} />
-      <fieldset>
-        <button type="button" onClick={() => this.props.add(Number(this.operand.value))}>Add</button>
-        <button type="button" onClick={() => this.props.subtract(Number(this.operand.value))}>Subtract</button>
-      </fieldset>
-      <span>Result: {this.props.result}</span>
-    </form>;
+
+    return React.createElement('div', null,(true) ? <EditRow /> : <ViewRow />)
+
+    // return <div>
+    //   (this.props.editRowId === car.id) ? <EditRow /> : <ViewRow />
+    // </div>;
+
+
+
+    return <div>
+      (do { if (true) <EditRow /> else <ViewRow /> })
+    </div>
+
+    if (true) {
+      return <div><EditRow /></div>;
+    } else {
+      return <div><ViewRow /></div>;
+    }
+
   }
 
 }
 
-const CalculatorContainer = connect(mapStateToProps, mapDispatchToProps)(Calculator);
+
+// const state = {
+//   foods: [
+//     { name: 'pizza', rank: 1 },
+//     { name: 'chicken nuggets', rank: 2 }
+//   ],
+//   drinks: [
+//     { name: 'water', rank: 1 },
+//     { name: 'sode', rank: 2 },
+//   ],
+// };
+
+// class FoodList extends React.Component {
+
+//   render() {
+//     this.props.foodList
+//     this.props.drinksList
+//   }
+
+// }
+
+// const mapStateToProps = ({ foods, drinks }) => ({
+//   foodList: foods.map(({ name }) => name.toUpperCase()), drinksList: drinks
+// });
+
+// const props = mapStateToProps(state);
 
 
-ReactDOM.render(<CalculatorContainer store={store} />, document.querySelector('main'));
+
+
+// const name = 'Bob';
+
+// const propName = 'age';
+
+
+// const p = {
+//   _name: name,
+//   displayName() {
+//     console.log(this._name);
+//   },
+//   [ propName ]: 67,
+//   get name() {
+//     return this._name;
+//   },
+//   set name(value) {
+//     this._name = value;
+//   }
+// };
+
+// console.log(p);
+// p.displayName();
+
+
+
+// const p = {
+//   address: {
+//     street: {
+//       number: 1,
+//       name: 'Oak Lane'
+//     }
+//     city: 
+//   }
+// }
+
+// const { street, city } = p.address.street;
+
+// street.
+
+// function doIt2({ url }, ) {
+//   url
+// }
+
+// const options = {
+//   url: 'http://www.intuit.com',
+// };
+
+// doIt2(options)
+
+
+
+// function doIt(a,b,c,...params) {
+//   console.log(a,b,c, params);
+// }
+
+// doIt(...[1,2,3,4,5], 6);
+
+// const nums = [1,2,3].concat(4);
+// console.log(nums);
+
+// const [ , ...items ]  = [ 1,2,3,4,5 ];
+
+// const items = [1,2,3,4,5].slice(1);
+
+// console.log(items);
+
+
+
+// const p = { 
+//   firstName: 'Bob',
+//   lastName: 'Smith',
+//   address: {
+//     city: 'Parker',
+//     state: 'CO',
+//   }
+// };
+
+// const firstName = 'Sarah';
+// //        const fn = firstName;   const { city } = address
+// const { firstName: fn, lastName, address: { city : c } } = p;
+
+// console.log(firstName, fn, lastName, c);
+
+
