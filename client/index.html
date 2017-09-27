@@ -10,6 +10,80 @@
 
 <body>
   <main></main>
+  <script>
+
+    const stats = {
+
+      _scores: [1,2,3,4,5],
+      _scores2: [6,7,8,9,0],
+
+      [Symbol.iterator]: function*() {
+        for (var x =0; x<this._scores.length; x++) {
+          yield this._scores[x];
+        }
+      },
+
+      getData: function() {
+        return this._scores;
+      }
+
+    };
+
+    for (let score of stats) {
+      console.log(score);
+    }
+
+
+
+    // const myFirstSymbol = Symbol();
+    // const mySecondSymbol = Symbol();
+
+    // const p = {
+    //   firstName: 'Bob',
+    //   [myFirstSymbol]: 'some value', 
+    // }
+
+    // console.log(p[myFirstSymbol]);
+
+    // console.log(JSON.stringify(p));
+
+
+  
+    // const myObj
+
+    function* myNums() {
+      console.log('in func 1');
+      yield 1;
+      console.log('in func 2');
+      yield 2;
+      console.log('in func 3');
+      yield 3;
+    }
+
+    new Promise(() => {
+      console.log(t.next());
+    }).then(() => {
+      console.log(t.next());
+    });
+    // console.log('out of func 1');
+    // console.log('out of func 2');
+    // console.log(t.next());
+    // console.log('out of func 3');
+    // console.log(t.next());
+    // console.log('out of func 4');
+
+    // for (let num of myNums()) {
+    //   console.log('out of func');
+    //   console.log(num);
+    // }
+
+    // console.log(Array.from(myNums()).map(x => x ** 2));
+
+    // const t = myNums();
+
+    
+
+  </script>
 </body>
 
 </html>

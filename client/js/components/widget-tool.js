@@ -5,7 +5,7 @@ import { ToolHeader } from './tool-header';
 import { WidgetTable } from './widget-table';
 import { ToolFooter } from './tool-footer';
 
-export class WidgetTool extends React.Component {
+export class WidgetTool extends React.PureComponent {
 
   static propTypes = {
     refreshWidgets: PropTypes.func.isRequired,
