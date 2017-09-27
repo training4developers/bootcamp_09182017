@@ -3,7 +3,7 @@ import { actionTypes } from '../action-types';
 export const editWidgetId = (state = 0, action) => {
   
   switch (action.type) {
-    case actionTypes.REPLACE:
+    case actionTypes.REPLACE_REQUEST:
       return 0;
     case actionTypes.EDIT:
       return action.widgetId;

@@ -82,14 +82,14 @@
       "description": "a",
       "color": "a",
       "size": "a",
-      "quantity": 12,
+      "quantity": 13,
       "id": 6
     },
     {
-      "name": "b",
-      "description": "b",
-      "color": "b",
-      "size": "b",
+      "name": "a",
+      "description": "a",
+      "color": "a",
+      "size": "a",
       "quantity": 0,
       "id": 7
     }
