@@ -82,16 +82,8 @@
       "description": "a",
       "color": "a",
       "size": "a",
-      "quantity": 13,
-      "id": 6
-    },
-    {
-      "name": "a",
-      "description": "a",
-      "color": "a",
-      "size": "a",
-      "quantity": 0,
-      "id": 7
+      "quantity": 1,
+      "id": 5
     }
   ],
   "people": [
