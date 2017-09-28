@@ -5,21 +5,21 @@ import { bindActionCreators } from 'redux';
 
 import { appStore } from './app-store';
 import * as widgetActionCreators from './actions/widget-actions';
-import { refreshWidgets } from './actions/refresh-widgets';
-import { insertWidget } from './actions/insert-widget';
-import { deleteWidget } from './actions/delete-widget';
-import { replaceWidget } from './actions/replace-widget';
+import { refreshWidgetsRequest } from './actions/refresh-widgets';
+import { insertWidgetRequest } from './actions/insert-widget';
+import { deleteWidgetRequest } from './actions/delete-widget';
+import { replaceWidgetRequest } from './actions/replace-widget';
 import { WidgetTool } from './components/widget-tool';
 
 const WidgetToolContainer = connect(
   ({ widgets, editWidgetId }) => ({ widgets, editWidgetId }),
   dispatch => bindActionCreators({
-    insertWidget,
-    replaceWidget,
-    deleteWidget,
+    insertWidget: insertWidgetRequest,
+    replaceWidget: replaceWidgetRequest,
+    deleteWidget: deleteWidgetRequest,
     editWidget: widgetActionCreators.editWidgetActionCreator,
     cancelWidget: widgetActionCreators.cancelWidgetActionCreator,
-    refreshWidgets,
+    refreshWidgets: refreshWidgetsRequest,
   }, dispatch))(WidgetTool);
 
 ReactDOM.render(<Provider store={appStore}>

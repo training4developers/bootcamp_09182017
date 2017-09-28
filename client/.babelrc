@@ -1,6 +1,15 @@
 {
   "presets": [
-    "env",
+    [ "env", {
+      "modules": false,
+      "exclude": [ "transform-regenerator", "transform-async-to-generator" ],
+      "targets": {
+        "browsers": [
+          "last 2 versions",
+          "ie >= 11"
+        ]
+      }
+    }],
     "react"
   ],
   "plugins": [

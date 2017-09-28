@@ -74,6 +74,7 @@ const webpackConfig = {
                 // Webpack 2 provides module support
                 ['env', {
                   modules: false,
+                  exclude: [ 'transform-regenerator', 'transform-async-to-generator' ],
                   targets: {
                     browsers: [
                       'last 2 versions',
