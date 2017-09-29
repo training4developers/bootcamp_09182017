@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>React/Redux/Relay Starter Project</title>
+  <link rel="icon" href="data:,">
+</head>
+
+<body>
+  <main class="container-fluid"></main>
+  <script>
+
+    function doIt() {
+      return new Promise(resolve => setTimeout(() => resolve('a'), 2000));
+    }
+
+    async function doSomething() {
+
+      const t = await doIt();
+
+
+    }
+
+    // const p1 = new Promise(resolve => setTimeout(() => resolve('a'), 2000));
+    // const p2 = new Promise(resolve => setTimeout(() => resolve('b'), 4000));
+    // const p3 = new Promise((resolve) => setTimeout(() => resolve('c'), 6000));
+    // const p4 = new Promise(resolve => setTimeout(() => resolve('d'), 8000));
+
+    // p1.then(results => console.log(results));
+    // p2.then(results => console.log(results));
+    // p3.then(results => console.log(results)).catch(err => console.log('err:',err));
+    // p4.then(results => console.log(results));
+
+    // class MyPromise {
+    //   static all(iterableOfPromises) {
+    //     return new Promise(resolve => {
+    //       let counter = 0;
+    //       const arrayOfResults = [];
+    //       iterableOfPromises.forEach((promise, index) => {
+    //         counter++;
+    //         promise.then(results => {
+    //           arrayOfResults[index] = results;
+    //           counter--;
+    //           if (counter === 0) {
+    //             resolve(arrayOfResults);
+    //           }
+    //         });
+    //       });
+    //     });
+    //   }
+
+    // }
+
+
+    // MyPromise.all([p1,p2,p3,p4]).then(results => {
+    //   console.log(results);
+    //   console.log('all done');
+    // }).catch(err => console.log('one failed:', err));
+
+
+    // const p1 = new Promise(resolve => setTimeout(() => resolve('a'), 2000));
+    // const p2 = new Promise(resolve => setTimeout(() => resolve('b'), 2000));
+
+    // Promise.race([p1,p2]).then(results => console.log(results));
+
+
+
+
+    // let counter = 0;
+
+    // counter++;
+    // setTimeout(() => {
+    //   console.log('a');
+    //   counter--;
+    //   if (counter === 0) {
+    //     allDone();
+    //   }
+    // }, 2000);
+
+    // counter++;
+    // setTimeout(() => {
+    //   console.log('b');
+    //   counter--;
+    //   if (counter === 0) {
+    //     allDone();
+    //   }
+    // }, 1000);
+
+    // counter++;
+    // setTimeout(() => {
+    //   console.log('c');
+    //   counter--;
+    //   if (counter === 0) {
+    //     allDone();
+    //   }
+    // }, 3000);
+
+    // function allDone() {
+    //   console.log('all done');
+    // }
+
+    // const doIt = (delay) => {
+    //   return new Promise(resolve => {
+    //     console.log('an a is done');
+    //     setTimeout(() => resolve('a'), 2000);
+    //   });
+    // };
+
+    // doIt(500).then(results => { console.log(results); return doIt(1000); })
+    //   .then(() => doIt(2000))
+    //   .then(() => doIt(3000)).then(() => console.log('all done'))
+    //   .catch(err => console.log(err));
+
+
+
+    
+
+  </script>
+</body>
+
+</html>

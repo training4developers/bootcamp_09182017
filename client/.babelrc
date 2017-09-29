@@ -1,7 +1,7 @@
 {
   "presets": [
     [ "env", {
-      "modules": false,
+      "modules": "commonjs",
       "exclude": [ "transform-regenerator", "transform-async-to-generator" ],
       "targets": {
         "browsers": [

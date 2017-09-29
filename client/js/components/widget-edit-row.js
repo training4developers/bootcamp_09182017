@@ -35,7 +35,7 @@ export const WidgetEditRow = props => {
       props.onInsertWidget(getFormData());
       clearForm();
     }
-  }
+  };
   
   const cancelWidget = () => {
     if (props.widget) {
@@ -43,7 +43,7 @@ export const WidgetEditRow = props => {
     } else {
       clearForm();
     }
-  }
+  };
 
   return <tr>
     <td><input type="text" ref={input => nameInput = input} defaultValue={props.widget && props.widget.name} /></td>
